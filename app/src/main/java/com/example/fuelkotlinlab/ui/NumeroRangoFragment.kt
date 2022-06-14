@@ -5,56 +5,51 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
 import com.example.fuelkotlinlab.R
+import com.github.kittinunf.fuel.Fuel
+import com.github.kittinunf.fuel.json.responseJson
+import com.github.kittinunf.result.Result
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [NumeroRangoFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class NumeroRangoFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_numero_rango, container, false)
-    }
+        val fragment = inflater.inflate(R.layout.fragment_numero_rango, container, false)
+        val btn: Button = fragment.findViewById(R.id.convertirButton)
+        val editText: EditText = fragment.findViewById(R.id.numberEditText)
+        val resultText: TextView = fragment.findViewById(R.id.resultText)
+        btn.setOnClickListener {
+            val numero: Int? = editText.text.toString().toIntOrNull()
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment NumeroRangoFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            NumeroRangoFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+            if (numero == null) {
+                "Debe especificar un número.".also { resultText.text = it }
+                return@setOnClickListener
+            }
+
+            if (numero < 0) {
+                "El número debe ser un valor positivo.".also { resultText.text = it }
+                return@setOnClickListener
+            }
+
+            Fuel.get(
+                "/parcial3/pares_en_rango_cerrado.php",
+                listOf("numero" to editText.text)
+            ).responseJson { _, _, result ->
+                when (result) {
+                    is Result.Failure -> {
+                        resultText.text = result.getException().toString()
+                    }
+                    is Result.Success -> {
+                        val data = result.get().obj()
+                        ("Los números pares desde 0 hasta $numero (incluyendo el cero) son: " + data.getString("numero")).also { resultText.text = it }
+                    }
                 }
             }
+        }
+        return fragment
     }
 }

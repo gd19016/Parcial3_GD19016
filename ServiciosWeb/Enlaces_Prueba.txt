@@ -1,2 +1,5 @@
 https://gd19016pdm115.000webhostapp.com/parcial3/pares_en_rango_cerrado.php?numero=50
 
+https://gd19016pdm115.000webhostapp.com/parcial3/ws_promedio_participantes.php?juego=1
+
+https://gd19016pdm115.000webhostapp.com/parcial3/ws_ingresar_partida.php?juego=1&participantes=10&ganador=Robert
