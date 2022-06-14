@@ -34,4 +34,6 @@
     <string name="juego">Juego</string>
     <string name="participantes">Participantes</string>
     <string name="ganador">Ganador</string>
+    <string name="ingresa_id_juego">Ingresa el id del juego</string>
+    <string name="no_juego">No se encontró un juego con este id.</string>
 </resources>
