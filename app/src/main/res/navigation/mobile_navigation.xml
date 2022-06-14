@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_num_texto">
+    <fragment
+        android:id="@+id/nav_num_texto"
+        android:name="com.example.fuelkotlinlab.ui.NumeroATextoFragment"
+        android:label="@string/numero_texto"
+        tools:layout="@layout/fragment_numero_a_texto" />
+    <fragment
+        android:id="@+id/nav_ingresar_nota"
+        android:name="com.example.fuelkotlinlab.ui.IngresarNotasFragment"
+        android:label="@string/ingresar_nota"
+        tools:layout="@layout/fragment_ingresar_notas" />
+    <fragment
+        android:id="@+id/nav_promedio_notas"
+        android:name="com.example.fuelkotlinlab.ui.PromedioNotasFragment"
+        android:label="@string/promedio_notas"
+        tools:layout="@layout/fragment_promedio_notas" />
+</navigation>
