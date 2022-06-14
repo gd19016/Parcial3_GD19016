@@ -25,6 +25,22 @@ class IngresarPartidaFragment : Fragment() {
         val cantParticipantes: EditText = fragment.findViewById(R.id.participantesEdit)
         val ganador: EditText = fragment.findViewById(R.id.ganadorEdit)
         btn.setOnClickListener {
+            if (juego.text == null || juego.text.toString().isEmpty()) {
+                Toast.makeText(context, "Debe especificar un id de juego.",
+                    Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            if (ganador.text == null || ganador.text.toString().isEmpty()) {
+                Toast.makeText(context, "Debe especificar el ganador.",
+                    Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            if (cantParticipantes.text == null || cantParticipantes.text.toString().isEmpty()) {
+                cantParticipantes.setText("1")
+            }
+
             Fuel.get(
                 "/parcial3/ws_ingresar_partida.php",
                 listOf(
@@ -44,8 +60,11 @@ class IngresarPartidaFragment : Fragment() {
                                 val data = result.get().obj()
                                 if (data.has("resultado") && data.getString("resultado") ==
                                     "1") {
-                                    Toast.makeText(context, getString(R.string.ws_exito),
+                                    Toast.makeText(context, getString(R.string.ws_exito_insert_partida),
                                         Toast.LENGTH_SHORT).show()
+                                    juego.text.clear()
+                                    cantParticipantes.text.clear()
+                                    ganador.text.clear()
                                 } else {
                                     Toast.makeText(context, getString(R.string.ws_error),
                                         Toast.LENGTH_SHORT).show()

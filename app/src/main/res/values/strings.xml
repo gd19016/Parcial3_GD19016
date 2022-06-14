@@ -37,4 +37,5 @@
     <string name="ingresa_id_juego">Ingresa el id del juego</string>
     <string name="no_juego">No se encontró un juego con este id.</string>
     <string name="ingresa_numero_rango">Ingrese un número para calcular pares:</string>
+    <string name="ws_exito_insert_partida">¡Partida registrada con éxito!</string>
 </resources>

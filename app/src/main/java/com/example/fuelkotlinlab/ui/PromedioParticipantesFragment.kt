@@ -24,6 +24,13 @@ class PromedioParticipantesFragment : Fragment() {
         val editText: EditText = fragment.findViewById(R.id.idJuegoEditText)
         val resultText: TextView = fragment.findViewById(R.id.promedioText)
         btn.setOnClickListener {
+            val numero: Int? = editText.text.toString().toIntOrNull()
+
+            if (numero == null) {
+                "Debe especificar un número.".also { resultText.text = it }
+                return@setOnClickListener
+            }
+
             Fuel.get(
                 "/parcial3/ws_promedio_participantes.php",
                 listOf("juego" to editText.text)
