@@ -3,20 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_num_texto">
+    app:startDestination="@+id/nav_num_rango">
     <fragment
-        android:id="@+id/nav_num_texto"
-        android:name="com.example.fuelkotlinlab.ui.NumeroATextoFragment"
-        android:label="@string/numero_texto"
-        tools:layout="@layout/fragment_numero_a_texto" />
+        android:id="@+id/nav_num_rango"
+        android:name="com.example.fuelkotlinlab.ui.NumeroRangoFragment"
+        android:label="@string/numero_rango"
+        tools:layout="@layout/fragment_numero_rango" />
     <fragment
-        android:id="@+id/nav_ingresar_nota"
-        android:name="com.example.fuelkotlinlab.ui.IngresarNotasFragment"
-        android:label="@string/ingresar_nota"
-        tools:layout="@layout/fragment_ingresar_notas" />
+        android:id="@+id/nav_ingresar_partida"
+        android:name="com.example.fuelkotlinlab.ui.IngresarPartidaFragment"
+        android:label="@string/ingresar_partida"
+        tools:layout="@layout/fragment_ingresar_partida" />
     <fragment
-        android:id="@+id/nav_promedio_notas"
-        android:name="com.example.fuelkotlinlab.ui.PromedioNotasFragment"
-        android:label="@string/promedio_notas"
-        tools:layout="@layout/fragment_promedio_notas" />
+        android:id="@+id/nav_promedio_participantes"
+        android:name="com.example.fuelkotlinlab.ui.PromedioParticipantesFragment"
+        android:label="@string/promedio_participantes"
+        tools:layout="@layout/fragment_promedio_participantes" />
 </navigation>

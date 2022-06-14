@@ -28,4 +28,10 @@
     <string name="ws_exito">Web Service ejecutado con éxito</string>
     <string name="error">Error</string>
     <string name="ws_error">Error al ejecutar web service</string>
+    <string name="numero_rango">Número en rango</string>
+    <string name="ingresar_partida">Ingresar partida</string>
+    <string name="promedio_participantes">Promedio participantes</string>
+    <string name="juego">Juego</string>
+    <string name="participantes">Participantes</string>
+    <string name="ganador">Ganador</string>
 </resources>

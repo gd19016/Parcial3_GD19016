@@ -4,16 +4,16 @@
     tools:showIn="navigation_view">
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_num_texto"
+            android:id="@+id/nav_num_rango"
             android:icon="@drawable/ic_menu_number"
-            android:title="@string/numero_texto" />
+            android:title="@string/numero_rango" />
         <item
-            android:id="@+id/nav_ingresar_nota"
+            android:id="@+id/nav_ingresar_partida"
             android:icon="@drawable/ic_menu_add"
-            android:title="@string/ingresar_nota" />
+            android:title="@string/ingresar_partida" />
         <item
-            android:id="@+id/nav_promedio_notas"
+            android:id="@+id/nav_promedio_participantes"
             android:icon="@drawable/ic_menu_average"
-            android:title="@string/promedio_notas" />
+            android:title="@string/promedio_participantes" />
     </group>
 </menu>
